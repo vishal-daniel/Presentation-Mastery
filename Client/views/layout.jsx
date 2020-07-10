@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header } from 'watson-react-components';
 
 export default function Layout({ children }) {
   return (
@@ -17,9 +16,6 @@ export default function Layout({ children }) {
         <link rel="stylesheet" href="/css/style.css" />
       </head>
       <body>
-        {/* <Header
-          mainBreadcrumbs="Presentation Mastery"
-        /> */}
 
         <div style={{ backgroundColor: '#f4f4f4', width: '100%', height: '30vh', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
           <h1>

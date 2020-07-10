@@ -6,5 +6,4 @@ logs/
 .env
 *.log
 coverage/
-package-lock.json
-yarn.lock
+

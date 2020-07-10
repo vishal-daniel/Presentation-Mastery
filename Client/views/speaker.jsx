@@ -3,14 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function SpeakersView(props) {
   try {
-    const results = props.messages.map(msg =>
-      // When resultsBySpeaker is enabled, each msg.results array may contain multiple results.
-      // The result_index is for the first result in the message,
-      // so we need to count up from there to calculate the key.
-
-      // resultsBySpeaker/SpeakerStream sets each results.speaker value once it is known,
-      // but can also return results without any speaker set if the speakerlessInterim flag
-      // is set (for faster UI updates).
+    const results = props.messages.map((msg) =>
       msg.results.map((result, i) => (
         <div key={`result-${msg.result_index + i}`}>
           <dt>{typeof result.speaker === 'number'

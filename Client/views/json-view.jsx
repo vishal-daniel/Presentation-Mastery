@@ -11,12 +11,8 @@ function makeJsonLink(obj, i) {
   return (obj ? <JsonInline json={obj} key={`jsonlink-${i}`} /> : null);
 }
 
-// we want to insert nulls into the array rather than remove the elements so that the non-null
-// items will have the same key
 function nullImterim(msg) {
   if (msg.speaker_labels) {
-    // some messages can have both results (final or interim) and speaker labels
-    // in that case we want to show it for the speaker_labels, even if the result is interim
     return msg;
   }
   if (msg.results && msg.results.length && !msg.results[0].final) {
@@ -34,7 +30,7 @@ function nullInterimRaw(raw) {
 
 function renderRawMessage(msg, i) {
   if (!msg) {
-    return null; // (<div key={`raw-${i}`} />);
+    return null; 
   }
   return (
     <div key={`raw-${i}`}>
@@ -68,15 +64,12 @@ export class JsonView extends Component {
   }
 
   handleInterimChange() {
-    this.setState(preState => ({
+    this.setState((preState) => ({
       interim: !preState.interim,
     }));
   }
 
   render() {
-    // note: this originally rendered the JSON inline with a <Code> tag, but that silently
-    // crashed during highlighting.
-    // This is probably better for performance anyways.
     try {
       let output;
 

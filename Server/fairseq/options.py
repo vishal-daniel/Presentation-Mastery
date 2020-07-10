@@ -283,9 +283,9 @@ def add_distributed_training_args(parser):
 def add_optimization_args(parser):
     group = parser.add_argument_group('Optimization')
     # fmt: off
-    group.add_argument('--max-epoch', '--me', default=0, type=int, metavar='N',
+    group.add_argument('--max-epoch', '--me', default=2, type=int, metavar='N',
                        help='force stop training at specified epoch')
-    group.add_argument('--max-update', '--mu', default=0, type=int, metavar='N',
+    group.add_argument('--max-update', '--mu', default=2, type=int, metavar='N',
                        help='force stop training at specified update')
     group.add_argument('--clip-norm', default=25, type=float, metavar='NORM',
                        help='clip threshold of gradients')
@@ -385,7 +385,7 @@ def add_generation_args(parser):
     group = parser.add_argument_group('Generation')
     add_common_eval_args(group)
     # fmt: off
-    group.add_argument('--beam', default=5, type=int, metavar='N',
+    group.add_argument('--beam', default=1, type=int, metavar='N',
                        help='beam size')
     group.add_argument('--nbest', default=1, type=int, metavar='N',
                        help='number of hypotheses to output')
